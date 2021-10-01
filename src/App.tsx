@@ -5,7 +5,8 @@ import {
 import { 
   Header,
   FilterItem,
-  GamesItem
+  GamesItem,
+  Modal
 } from './components';
 
 import dataProducts from './data/products.json';
@@ -104,26 +105,12 @@ export default function App() {
               ))
             }
             {
-                modal.mount && (
-                    <div 
-                      id={
-                        modal.animation
-                        ?
-                        styles.modalOn
-                        :
-                        styles.modalOff
-                      }
-                    >
-                      <div id={styles.modalArea}>
-                        <img
-                          id={styles.modalButtonLeave}
-                          src={require('./assets/icon-leave.svg').default}
-                          alt="icon leave"
-                          onClick={closeModalGame}
-                        />
-                      </div>
-                    </div>
-                )
+              modal.mount
+              &&
+              <Modal
+                animation={modal.animation}
+                clickCloseModal={closeModalGame}
+              />
             }
           </div>
         </div>
