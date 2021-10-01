@@ -8,7 +8,8 @@ import dataProducts from '../data/products.json';
 
 interface ProductsContextData {
     chooseItem: (id:number) => void;
-    currentItem: any
+    currentItem: any;
+    dataProducts: object[];
 }
 
 const ProductsContext = createContext({} as ProductsContextData);
@@ -32,7 +33,8 @@ export function ProductsProvider({ children }:ProductsProviderData) {
     return (
         <ProductsContext.Provider value={{ 
             chooseItem,
-            currentItem
+            currentItem,
+            dataProducts
         }}>
             { children }
         </ProductsContext.Provider>

@@ -1,4 +1,4 @@
-import { 
+import {
   useState
 } from 'react';
 
@@ -9,7 +9,7 @@ import {
   Modal
 } from './components';
 
-import dataProducts from './data/products.json';
+import calcPrice from './utils/calcPrice';
 
 import { useProducts } from './contexts/ProductsContext';
 
@@ -24,7 +24,8 @@ export default function App() {
   // let [ currentGame, setCurrentGame ] = useState({})
   let { 
     chooseItem,
-    currentItem 
+    currentItem,
+    dataProducts
   } = useProducts();
 
   function openModalGame({ target }:any) {
@@ -98,7 +99,7 @@ export default function App() {
           </div>
           <div id={styles.games}>
             {
-              dataProducts.map(item => (
+              dataProducts.map((item:any) => (
                 <GamesItem
                   key={item.id}
                   identifier={String(item.id)}
@@ -117,9 +118,11 @@ export default function App() {
                 title={currentItem.name}
                 src={currentItem.image}
                 alt={`image game ${currentItem.name}`}
-                price={20.00}
-                subPrice={10.00}
-                frete={10.00}
+                price={
+                  calcPrice(currentItem.price).totalPrice
+                }
+                subPrice={calcPrice(currentItem.price).subPrice}
+                frete={calcPrice(currentItem.price).frete}
               />
             }
           </div>
