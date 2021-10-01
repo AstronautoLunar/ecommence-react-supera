@@ -19,21 +19,24 @@ interface styleModalData {
 
 export default function App() {
   let [ radio, setRadio ] = useState("");
-  let [ modal, setModal ] = useState(false);
-  let [ styleModal, setStyleModal ] = useState({} as styleModalData)
+  let [ modal, setModal ] = useState({
+    mount: false,
+    animation: false
+  });
   // let [ currentGame, setCurrentGame ] = useState({})
 
   function openModalGame() {
-    setModal(true);
-    setStyleModal({ ...styleModal, display: "block", opacity: 1})
+    setModal({ ...modal, animation: true, mount: true });
   }
+
   
   function closeModalGame() {
-    setStyleModal({ ...styleModal,  opacity: 0})
-    setTimeout(() => {
-      setStyleModal({ ...styleModal, display: "none"})
-      setModal(false);
-    }, 2000)
+    setModal({ ...modal, animation: false});
+    let timerModal;
+    clearTimeout(timerModal);
+    timerModal = setTimeout(() => {
+      setModal({ ...modal, animation: false, mount: false})
+    }, 250)
   }
 
   const itemsForFilter = [
@@ -101,10 +104,15 @@ export default function App() {
               ))
             }
             {
-                modal && (
+                modal.mount && (
                     <div 
-                      id={styles.modal}
-                      style={styleModal}
+                      id={
+                        modal.animation
+                        ?
+                        styles.modalOn
+                        :
+                        styles.modalOff
+                      }
                     >
                       <div id={styles.modalArea}>
                         <img
