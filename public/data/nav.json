@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "src": "icon-menu.svg",
+        "alt": "icon menu"
+    },
+    {
+        "id": 2,
+        "src": "icon-about.svg",
+        "alt": "icon about"
+    }
+]
