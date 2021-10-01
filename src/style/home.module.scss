@@ -1,5 +1,73 @@
 div#App {
-    display: flex;
+
+    main#Main {
+        
+        div#topHeader {
+            justify-content: space-between;
+            align-items: center;
+            
+            height: 100px;
+            
+            span#title {
+                font-size: 50px;
+                
+                margin-left: 20px;
+            }
+            
+            img#imageCart {
+                margin-right: 20px;
+            }
+        }
+        
+        div#AreaGames {
+            width: 90%;
+
+            margin-left: 122px;
+
+            div#filterGames {
+
+                span#text {
+                    font-size: 30px;
+
+                    margin-right: 20px;
+                }
+
+            }
+        }
+    }
+}
+
+span#title,
+span#text
+{
+    color: var(--cultured);
+}
+
+main#Main,
+div#AreaGames
+{
+    flex-direction: column;
+}
+
+div#App,
+main#Main,
+div#AreaGames
+{
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+}
+
+div#App,
+main#Main,
+div#topHeader,
+div#AreaGames,
+div#filterGames
+{
+    display: flex;
+}
+
+main#Main,
+div#topHeader
+{
+    width: 100%;
 }
