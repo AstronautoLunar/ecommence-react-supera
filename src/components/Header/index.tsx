@@ -6,9 +6,8 @@ import {
 
 import styles from './styles.module.scss';
 
-// import dataItensNavBar from '../../../public/data/nav.json';
+import dataNavBar from '../../data/navBar.json'
 
-const URL_DATA_ITENS = '../../../public/data/nav.json';
 const ONE_SECONDS_IN_MILISECONDS = 1000;
 
 interface itensData {
@@ -24,10 +23,10 @@ export default function Header() {
 
     useEffect(() => {
         setInterval(() => {
-            setDate(timeRef.current = new Date().toLocaleTimeString())
-        }, ONE_SECONDS_IN_MILISECONDS);
+            setDate(timeRef.current = new Date().toLocaleTimeString());
 
-        // getItensData(URL_DATA_ITENS)
+            // console.log(require(.))
+        }, ONE_SECONDS_IN_MILISECONDS);
     }, [ 
         date, 
         setDate,
@@ -35,17 +34,6 @@ export default function Header() {
         itens,
         setItens
     ])
-    
-    function getItensData(url:string) {
-        fetch(url, {
-            headers: {
-                'Content-Type': 'Application/json',
-                'Accept': 'application/json'
-            }
-        })
-            .then(response => console.log(response))
-            // .then(data => console.log(data));
-    }
 
     return (
         <div id={styles.Header}>
@@ -55,7 +43,21 @@ export default function Header() {
                 role="navigation"
             >
                 <ul id={styles.list}>
-
+                    {
+                        dataNavBar.map(item => (
+                            <li 
+                                className={styles.item}
+                                key={item.id}
+                            >
+                                <div className={styles.circle}>
+                                    <img
+                                        src={require(`../../assets/${item.src}`).default}
+                                        alt={item.alt}
+                                    />
+                                </div>
+                            </li>
+                        ))
+                    }
                 </ul>
             </nav>
         </div>

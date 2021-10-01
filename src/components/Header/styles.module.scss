@@ -11,13 +11,28 @@ div#Header {
         
         font-size: 24px;
         
-        margin-top: 30px;
+        margin-top: 20px;
     }
     
     nav#navBar {
         
         ul#list {
             justify-content: space-evenly;
+
+            list-style-type: none;
+
+            li.item {
+
+                div.circle {
+                    width: 64px;
+                    height: 64px;
+
+                    justify-content: center;
+
+                    border: 1px solid var(--cultured);
+                    border-radius: 100%;
+                }
+            }
         }
     }
 }
@@ -26,11 +41,12 @@ nav#navBar,
 ul#list
 {
     width: 100%;
-    // height: 100%;
+    height: 100%;
 }
 
 div#Header,
-ul#list
+ul#list,
+div.circle
 {
     display: flex;
     flex-direction: column;
