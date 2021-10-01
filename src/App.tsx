@@ -11,12 +11,9 @@ import {
 
 import dataProducts from './data/products.json';
 
-import styles from './style/home.module.scss';
+import { useProducts } from './contexts/ProductsContext';
 
-interface styleModalData {
-  display: string;
-  opacity: number;
-}
+import styles from './style/home.module.scss';
 
 export default function App() {
   let [ radio, setRadio ] = useState("");
@@ -25,9 +22,15 @@ export default function App() {
     animation: false
   });
   // let [ currentGame, setCurrentGame ] = useState({})
+  let { 
+    chooseItem,
+    currentItem 
+  } = useProducts();
 
-  function openModalGame() {
+  function openModalGame({ target }:any) {
     setModal({ ...modal, animation: true, mount: true });
+
+    chooseItem(Number(target.id));
   }
 
   
@@ -71,7 +74,7 @@ export default function App() {
       <Header/>
       <main id={styles.Main}>
         <div id={styles.topHeader}>
-          <span id={styles.title}>Bem vindo</span>
+          <h1 id={styles.title}>Bem vindo</h1>
           <img
               id={styles.imageCart}
               src={require('./assets/icon-cart.svg').default}
@@ -98,6 +101,7 @@ export default function App() {
               dataProducts.map(item => (
                 <GamesItem
                   key={item.id}
+                  identifier={String(item.id)}
                   src={item.image}
                   alt={`image ${item.name}`}
                   click={openModalGame}
@@ -108,8 +112,14 @@ export default function App() {
               modal.mount
               &&
               <Modal
-                animation={modal.animation}
+                animationDirection={modal.animation}
                 clickCloseModal={closeModalGame}
+                title={currentItem.name}
+                src={currentItem.image}
+                alt={`image game ${currentItem.name}`}
+                price={20.00}
+                subPrice={10.00}
+                frete={10.00}
               />
             }
           </div>

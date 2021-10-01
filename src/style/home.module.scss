@@ -9,7 +9,7 @@ div#App {
             
             height: 100px;
             
-            span#title {
+            h1#title {
                 font-size: 50px;
                 
                 margin-left: 20px;
@@ -47,7 +47,7 @@ div#App {
     }
 }
 
-span#title,
+h1#title,
 span#text
 {
     color: var(--cultured);
