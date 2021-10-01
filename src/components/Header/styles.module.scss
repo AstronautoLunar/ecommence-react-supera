@@ -3,8 +3,12 @@ div#Header {
     
     background-color: var(--prussian-blue);
     
-    width: 122px;
+    width: 112px;
     height: 100vh;
+
+    position: fixed;
+    left: 0;
+    top: 0;
     
     span#timetable {
         color: var(--cultured);

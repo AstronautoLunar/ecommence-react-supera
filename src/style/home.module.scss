@@ -1,7 +1,8 @@
 div#App {
 
     main#Main {
-        
+        margin-left: 122px;
+
         div#topHeader {
             justify-content: space-between;
             align-items: center;
@@ -20,9 +21,10 @@ div#App {
         }
         
         div#AreaGames {
-            width: 90%;
+            width: 79.5%;
 
             margin-left: 122px;
+            margin-right: 122px;
 
             div#filterGames {
 
@@ -32,6 +34,54 @@ div#App {
                     margin-right: 20px;
                 }
 
+            }
+
+            div#games {
+                margin-top: 20px;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+
+                div#modal {
+                    width: 1015px;
+                    height: 557px;
+                
+                    background-color: var(--cultured);
+                
+                    border-radius: 20px;
+                
+                    position: absolute;
+                    left: 55%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+
+                    transition: all 2s;
+
+                    opacity: 0;
+
+                    div#modalArea {
+                        height: 100%;
+
+                        position: relative;
+
+                        img#modalButtonLeave {
+                            position: absolute;
+                            
+                            left: 10px;
+                            top: 10px;
+
+                            width: 50px;
+                            height: 50px;
+
+                            transition: transform 200ms;
+                        }
+
+                        img#modalButtonLeave:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
             }
         }
     }
@@ -61,13 +111,15 @@ div#App,
 main#Main,
 div#topHeader,
 div#AreaGames,
-div#filterGames
+div#filterGames,
+div#games
 {
     display: flex;
 }
 
 main#Main,
-div#topHeader
+div#topHeader,
+div#modalArea
 {
     width: 100%;
 }

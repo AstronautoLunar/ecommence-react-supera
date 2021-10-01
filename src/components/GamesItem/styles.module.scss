@@ -1,0 +1,16 @@
+img.image {
+    width: 200px;
+    height: 268px;
+
+    margin: 10px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    transition: transform 200ms;
+}
+
+img.image:hover {
+    transform: scale(1.1);
+}

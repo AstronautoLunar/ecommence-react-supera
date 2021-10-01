@@ -1,14 +1,40 @@
-import { useState } from 'react';
+import { 
+  useState
+} from 'react';
 
 import { 
   Header,
-  FilterItem
+  FilterItem,
+  GamesItem
 } from './components';
+
+import dataProducts from './data/products.json';
 
 import styles from './style/home.module.scss';
 
+interface styleModalData {
+  display: string;
+  opacity: number;
+}
+
 export default function App() {
-  let [ radio, setRadio ] = useState("")
+  let [ radio, setRadio ] = useState("");
+  let [ modal, setModal ] = useState(false);
+  let [ styleModal, setStyleModal ] = useState({} as styleModalData)
+  // let [ currentGame, setCurrentGame ] = useState({})
+
+  function openModalGame() {
+    setModal(true);
+    setStyleModal({ ...styleModal, display: "block", opacity: 1})
+  }
+  
+  function closeModalGame() {
+    setStyleModal({ ...styleModal,  opacity: 0})
+    setTimeout(() => {
+      setStyleModal({ ...styleModal, display: "none"})
+      setModal(false);
+    }, 2000)
+  }
 
   const itemsForFilter = [
     {
@@ -61,6 +87,35 @@ export default function App() {
                   onChange={ changeInput }
                 />
               ))
+            }
+          </div>
+          <div id={styles.games}>
+            {
+              dataProducts.map(item => (
+                <GamesItem
+                  key={item.id}
+                  src={item.image}
+                  alt={`image ${item.name}`}
+                  click={openModalGame}
+                />
+              ))
+            }
+            {
+                modal && (
+                    <div 
+                      id={styles.modal}
+                      style={styleModal}
+                    >
+                      <div id={styles.modalArea}>
+                        <img
+                          id={styles.modalButtonLeave}
+                          src={require('./assets/icon-leave.svg').default}
+                          alt="icon leave"
+                          onClick={closeModalGame}
+                        />
+                      </div>
+                    </div>
+                )
             }
           </div>
         </div>
