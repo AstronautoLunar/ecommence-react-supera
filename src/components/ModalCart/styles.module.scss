@@ -1,0 +1,32 @@
+div#modalCart {
+    position: fixed;
+    right: 80px;
+    top: 80px;
+
+    width: 506px;
+    height: 432px;
+    
+    background-color: var(--cultured);
+    
+    border-radius: 20px;
+}
+
+@keyframes open-modal-cart {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes close-modal-cart {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

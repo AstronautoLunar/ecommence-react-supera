@@ -6,7 +6,8 @@ import {
   Header,
   FilterItem,
   GamesItem,
-  Modal
+  Modal,
+  ModalCart
 } from './components';
 
 import calcPrice from './utils/calcPrice';
@@ -21,6 +22,8 @@ export default function App() {
     mount: false,
     animation: false
   });
+  let [ modalCart, setModalCart ] = useState(false);
+
   let { 
     chooseItem,
     currentItem,
@@ -157,6 +160,10 @@ export default function App() {
     }
   }
 
+  function toggleModalCart() {
+    setModalCart(!modalCart);
+  }
+
   return (
     <div id={styles.App}>
       <Header/>
@@ -167,7 +174,9 @@ export default function App() {
               id={styles.imageCart}
               src={require('./assets/icon-cart.svg').default}
               alt="icon cart"
+              onClick={toggleModalCart}
           />
+          <ModalCart visible={false}/>
         </div>
         <div id={styles.AreaGames}>
           <div id={styles.filterGames}>
