@@ -1,4 +1,14 @@
-div#modalCart {
+div#modalCartOn {
+    animation-name: open-modal-cart;
+}
+
+div#modalCartOff {
+    animation-name: close-modal-cart;
+}
+
+div#modalCartOn,
+div#modalCartOff
+{
     position: fixed;
     right: 80px;
     top: 80px;
@@ -9,13 +19,16 @@ div#modalCart {
     background-color: var(--cultured);
     
     border-radius: 20px;
+
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
 }
 
 @keyframes open-modal-cart {
     from {
         opacity: 0;
     }
-
+    
     to {
         opacity: 1;
     }
@@ -25,7 +38,7 @@ div#modalCart {
     from {
         opacity: 1;
     }
-
+    
     to {
         opacity: 0;
     }

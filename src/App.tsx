@@ -22,7 +22,10 @@ export default function App() {
     mount: false,
     animation: false
   });
-  let [ modalCart, setModalCart ] = useState(false);
+  let [ modalCartVisible, setModalCartVisible ] = useState({
+    mount: false,
+    animation: false
+  });
 
   let { 
     chooseItem,
@@ -31,17 +34,70 @@ export default function App() {
   } = useProducts();
 
   function openModalGame({ target }:any) {
-    setModal({ ...modal, animation: true, mount: true });
+    setModal({ 
+      ...modal, 
+      animation: true, 
+      mount: true 
+    });
 
     chooseItem(Number(target.id));
   }
   
   function closeModalGame() {
-    setModal({ ...modal, animation: false});
+    setModal({ 
+      ...modal, 
+      animation: false
+    });
+
     let timerModal;
+
     clearTimeout(timerModal);
+
     timerModal = setTimeout(() => {
-      setModal({ ...modal, animation: false, mount: false})
+      setModal({ 
+        ...modal, 
+        animation: false, 
+        mount: false
+      })
+    }, 250)
+  }
+
+  function toggleModalCartVisible() {
+    
+    setModalCartVisible({ 
+      ...modalCartVisible, 
+      animation: !modalCartVisible.animation, 
+      mount: true
+    });
+    
+    if(modalCartVisible.mount) {
+      setTimeout(() => {
+        setModalCartVisible({ 
+          ...modalCartVisible, 
+          animation: false, 
+          mount: false
+        });
+      }, 250)
+    }
+  }
+  
+  function closeModalCartVisible() {
+    setModalCartVisible({ 
+      ...modalCartVisible, 
+      animation: false
+    });
+
+    let timerModal;
+
+    clearTimeout(timerModal);
+    
+    timerModal = setTimeout(() => {
+      setModalCartVisible({ 
+        ...modalCartVisible, 
+        animation: 
+        false, 
+        mount: false
+      })
     }, 250)
   }
 
@@ -160,9 +216,9 @@ export default function App() {
     }
   }
 
-  function toggleModalCart() {
-    setModalCart(!modalCart);
-  }
+  // function toggleModalCart() {
+  //   setModalCartVisible(!modalCartVisible);
+  // }
 
   return (
     <div id={styles.App}>
@@ -174,9 +230,13 @@ export default function App() {
               id={styles.imageCart}
               src={require('./assets/icon-cart.svg').default}
               alt="icon cart"
-              onClick={toggleModalCart}
+              onClick={toggleModalCartVisible}
           />
-          <ModalCart visible={false}/>
+          {
+            modalCartVisible.mount
+            &&
+            <ModalCart visible={modalCartVisible.animation}/>
+          }
         </div>
         <div id={styles.AreaGames}>
           <div id={styles.filterGames}>
