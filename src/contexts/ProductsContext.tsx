@@ -27,7 +27,6 @@ export function ProductsProvider({ children }:ProductsProviderData) {
         const itemSelected = dataProducts.filter(item => item.id === id);
     
         setCurrentItem(itemSelected[FIRST_ITEM_POSITION]);
-        // console.log(currentItem);
     }
 
     return (
