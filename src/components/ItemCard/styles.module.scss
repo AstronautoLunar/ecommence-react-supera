@@ -1,0 +1,32 @@
+div.ItemCard {
+    justify-content: space-around;
+
+    position: relative;
+
+    img.image {
+        width: 100px;
+    }
+    
+    span.textPrice {
+        color: var(--yellow-green);
+        
+        font-size: 30px;
+    }
+
+    div.subPriceAndFrete {
+        justify-content: space-between;
+    }
+
+    img.iconDelete {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+}
+
+div.ItemCard,
+div.subPriceAndFrete
+{
+    display: flex;
+    align-items: center;
+}

@@ -11,7 +11,8 @@ interface ModalData {
     price: number;
     subPrice: number;
     frete: number;
-    clickAddCart?: () => void;
+    clickAddCart?: ({ target }:any) => void;
+    identifierItem: number;
 }
 
 export default function Modal({ 
@@ -22,7 +23,9 @@ export default function Modal({
     alt,
     price,
     subPrice,
-    frete
+    frete,
+    clickAddCart,
+    identifierItem
 }: ModalData) {
     return (
         <div 
@@ -66,7 +69,13 @@ export default function Modal({
                             </span>
                         </span>
                     </div>
-                    <button id={styles.buttonAddCart}>Adicionar ao Carrinho</button>
+                    <button 
+                        id={styles.buttonAddCart}
+                        onClick={clickAddCart}
+                        data-id={identifierItem}
+                    >
+                        Adicionar ao Carrinho
+                    </button>
                 </div>
             </div>
         </div>

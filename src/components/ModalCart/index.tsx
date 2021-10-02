@@ -2,9 +2,13 @@ import styles from './styles.module.scss';
 
 interface ModalCartData {
     visible: boolean;
+    children?: JSX.Element | JSX.Element[];
 }
 
-export default function ModalCart({ visible }:ModalCartData) {
+export default function ModalCart({ 
+    visible, 
+    children 
+}:ModalCartData) {
 
     return (
         <div 
@@ -16,7 +20,7 @@ export default function ModalCart({ visible }:ModalCartData) {
                 styles.modalCartOff
             }
         >
-
+            { children }
         </div>
     )
 }

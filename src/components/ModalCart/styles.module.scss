@@ -22,6 +22,11 @@ div#modalCartOff
 
     animation-duration: 200ms;
     animation-fill-mode: forwards;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes open-modal-cart {

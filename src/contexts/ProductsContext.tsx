@@ -6,22 +6,20 @@ import {
 
 import dataProducts from '../data/products.json';
 
-interface ProductsContextData {
-    chooseItem: (id:number) => void;
-    currentItem: any;
-    dataProducts: object[];
-}
+import { 
+    ProductsContextData,
+    ProductsProviderData,
+    listGamesCardData
+} from '../types/productsContextData';
 
 const ProductsContext = createContext({} as ProductsContextData);
 
-interface ProductsProviderData {
-    children: JSX.Element | JSX.Element[];
-}
 
 const FIRST_ITEM_POSITION = 0;
 
 export function ProductsProvider({ children }:ProductsProviderData) {
     let [ currentItem, setCurrentItem ] = useState({});
+    let [ listGamesCard, setListGamesCard ] = useState([] as listGamesCardData[]);
     
     function chooseItem(id:number) {
         const itemSelected = dataProducts.filter(item => item.id === id);
@@ -29,11 +27,36 @@ export function ProductsProvider({ children }:ProductsProviderData) {
         setCurrentItem(itemSelected[FIRST_ITEM_POSITION]);
     }
 
+    function addGameCard({ target }:any) {
+        // console.log(target.getAttribute('data-id'));
+        
+        const identifierItem = Number(target.getAttribute("data-id"));
+
+        function filterItemAddCard(item:listGamesCardData) {
+            return item.id === identifierItem;
+        }
+
+        const itemSelected:listGamesCardData[] = dataProducts.filter(filterItemAddCard)
+
+        // console.log(itemSelected);
+        
+        // const FIRST_ITEM_iTEM_SELECTED = 0;
+
+        // listGamesCard.forEach(item => {
+        //     // if(item.id === itemSelected.id)
+        //     console.log(`${item.name}: ${item.id === itemSelected[FIRST_ITEM_iTEM_SELECTED].id}`);
+        // })
+
+        setListGamesCard(listGamesCard.concat(itemSelected));
+    }
+
     return (
         <ProductsContext.Provider value={{ 
             chooseItem,
             currentItem,
-            dataProducts
+            dataProducts,
+            addGameCard,
+            listGamesCard
         }}>
             { children }
         </ProductsContext.Provider>

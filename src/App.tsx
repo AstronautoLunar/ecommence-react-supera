@@ -9,12 +9,10 @@ import {
   Modal,
   ModalCart
 } from './components';
-
 import calcPrice from './utils/calcPrice';
-
 import { useProducts } from './contexts/ProductsContext';
-
 import styles from './style/home.module.scss';
+import { itemFilterDataType } from './types/app.tsx';
 
 export default function App() {
   let [ radio, setRadio ] = useState("alphabetical-a");
@@ -30,7 +28,8 @@ export default function App() {
   let { 
     chooseItem,
     currentItem,
-    dataProducts
+    dataProducts,
+    addGameCard
   } = useProducts();
 
   function openModalGame({ target }:any) {
@@ -145,11 +144,7 @@ export default function App() {
     setRadio(target.value);
   }
 
-  interface itemFilterDataType {
-    data: any;
-    type: string;
-  }
-
+  
   function itemFilterData({ 
     data, 
     type 
@@ -216,8 +211,8 @@ export default function App() {
     }
   }
 
-  // function toggleModalCart() {
-  //   setModalCartVisible(!modalCartVisible);
+  // function addGameCardModal({ target }:any) {
+  //   console.log(target.getAttribute('data-id'));
   // }
 
   return (
@@ -235,7 +230,9 @@ export default function App() {
           {
             modalCartVisible.mount
             &&
-            <ModalCart visible={modalCartVisible.animation}/>
+            <ModalCart visible={modalCartVisible.animation}>
+
+            </ModalCart>
           }
         </div>
         <div id={styles.AreaGames}>
@@ -282,6 +279,8 @@ export default function App() {
                 }
                 subPrice={calcPrice(currentItem.price).subPrice}
                 frete={calcPrice(currentItem.price).frete}
+                clickAddCart={ addGameCard }
+                identifierItem={ currentItem.id }
               />
             }
           </div>

@@ -119,7 +119,7 @@ div#modalOff
         }
 
         button#buttonAddCart:active {
-            background-color: var(--old-gold-press);
+            transform: scale(1.0);
         }
     }
 }
