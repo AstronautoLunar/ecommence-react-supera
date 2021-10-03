@@ -52,13 +52,18 @@ div#App {
         }
         
         div#AreaGames {
-            width: 79.5%;
+            flex: 1;
 
-            margin-left: 122px;
-            margin-right: 122px;
+            justify-content: center;
+            align-items: flex-start;
+
+            margin: 0 20px;
 
             div#filterGames {
                 width: 100%;
+
+                flex-wrap: wrap;
+                justify-content: center;
 
                 span#text {
                     font-size: 30px;
@@ -92,8 +97,7 @@ div#AreaGames
 }
 
 div#App,
-main#Main,
-div#AreaGames
+main#Main
 {
     justify-content: flex-start;
     align-items: flex-start;
@@ -115,4 +119,40 @@ div#topHeader,
 div#modalArea
 {
     width: 100%;
+}
+
+@media screen and (max-width: 742px) {
+    div#App {
+        main#Main {
+            margin-left: 80px;
+
+            // div#AreaGames {
+            //     margin-left: 0;
+            // }
+        }
+    }
+}
+
+@media screen and (max-width: 472px) {
+    div#App {
+        main#Main {
+            margin-left: 0;
+            margin-top: 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 388px) {
+    div#App {
+
+        main#Main {
+            
+            div#topHeader {
+
+                h1#title {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
 }

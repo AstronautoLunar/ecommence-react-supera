@@ -41,7 +41,7 @@ div#modalOff
     top: 50%;
     transform: translate(-50%, -50%);
 
-    transition: all 2s;
+    transition: all 200ms;
 
     opacity: 0;
 
@@ -73,6 +73,8 @@ div#modalOff
 
             h1#titleGame {
                 margin-bottom: 20px;
+
+                text-align: center;
             }
 
             img#imageGame {
@@ -161,4 +163,66 @@ div#priceBoard
 
 span.green {
     color: var(--yellow-green);
+}
+
+@media screen and (max-width: 1164px) {
+    div#modalOn,
+    div#modalOff
+    {
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    div#modalOn,
+    div#modalOff
+    {
+        width: 90vw;
+
+        div#modalArea {
+
+            img#modalButtonLeave {
+                position: fixed;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 782px) {
+    div#modalOn,
+    div#modalOff
+    {   
+        overflow-y: auto;
+    
+        
+        div#modalArea {
+            flex-direction: column;
+            
+            height: auto;
+
+            margin: 50px 0;
+        }
+    }
+}
+
+@media screen and (max-width: 624px) {
+    div#modalOn,
+    div#modalOff
+    {  
+        div#modalArea {
+            margin-top: 70px;
+            margin-bottom: 45px;
+
+            div#areaPresentGame {
+
+                h1#titleGame {
+                    font-size: 20px;
+                }
+
+                img#imageGame {
+                    width: 250px;
+                }
+            }
+        }
+    }
 }
