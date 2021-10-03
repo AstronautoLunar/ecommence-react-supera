@@ -224,13 +224,17 @@ export default function App() {
             id={styles.imageCart}
             onClick={toggleModalCartVisible}
           >
-            <div id={styles.counterArea}>
-              <span id={styles.counterText}>
-                {
-                  listGamesCard.length
-                }
-              </span>
-            </div>
+            {
+              listGamesCard.length > 0
+              &&
+              <div id={styles.counterArea}>
+                <span id={styles.counterText}>
+                  {
+                    listGamesCard.length
+                  }
+                </span>
+              </div>
+            }
           </div>
           {
             modalCartVisible.mount
