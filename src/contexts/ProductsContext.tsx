@@ -57,7 +57,8 @@ export function ProductsProvider({ children }:ProductsProviderData) {
             currentItem,
             dataProducts,
             addGameCard,
-            listGamesCard
+            listGamesCard,
+            removeGameCard
         }}>
             { children }
         </ProductsContext.Provider>

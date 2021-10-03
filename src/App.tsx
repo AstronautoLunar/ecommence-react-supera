@@ -29,8 +29,9 @@ export default function App() {
     chooseItem,
     currentItem,
     dataProducts,
+    listGamesCard,
     addGameCard,
-    listGamesCard
+    removeGameCard
   } = useProducts();
 
   function openModalGame({ target }:any) {
@@ -211,7 +212,7 @@ export default function App() {
         return data.sort(orderHighScore);
     }
   }
-  
+
   return (
     <div id={styles.App}>
       <Header/>
@@ -279,6 +280,7 @@ export default function App() {
                 clickAddCart={ addGameCard }
                 identifierItem={ currentItem.id }
                 listItems={ listGamesCard }
+                clickRemoveCart={ removeGameCard }
               />
             }
           </div>

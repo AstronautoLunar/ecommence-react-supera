@@ -15,6 +15,7 @@ interface ProductsContextData {
     currentItem: any;
     dataProducts: object[];
     addGameCard: (id:number) => void;
+    removeGameCard: (id:number) => void;
     listGamesCard: listGamesCardData[];
 }
 

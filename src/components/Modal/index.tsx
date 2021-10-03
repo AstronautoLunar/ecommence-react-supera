@@ -13,6 +13,7 @@ interface ModalData {
     subPrice: number;
     frete: number;
     clickAddCart?: ({ target }:any) => void;
+    clickRemoveCart?: ({ target }:any) => void;
     identifierItem: number;
     listItems: listGamesCardData[];
 }
@@ -27,6 +28,7 @@ export default function Modal({
     subPrice,
     frete,
     clickAddCart,
+    clickRemoveCart,
     identifierItem,
     listItems
 }: ModalData) {
@@ -92,7 +94,7 @@ export default function Modal({
                         ?
                         <button 
                             id={styles.buttonRemoveCart}
-                            onClick={clickAddCart}
+                            onClick={ clickRemoveCart }
                             data-id={identifierItem}
                         >
                             Remover do carrinho
@@ -100,7 +102,7 @@ export default function Modal({
                         :
                         <button 
                             id={styles.buttonAddCart}
-                            onClick={clickAddCart}
+                            onClick={ clickAddCart }
                             data-id={identifierItem}
                         >
                             Adicionar ao Carrinho
