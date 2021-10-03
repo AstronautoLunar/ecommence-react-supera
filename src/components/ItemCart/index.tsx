@@ -1,11 +1,11 @@
 import styles from './styles.module.scss';
 
 import { 
-    ItemCartData, 
-    writeInTextType 
+    ItemCartData
 } from '../../types/ItemCartData';
 
 export default function ItemCart({ 
+    identifierItem,
     srcImage,
     altImage,
     price,
@@ -13,14 +13,6 @@ export default function ItemCart({
     frete,
     deleteItemEvent
 }:ItemCartData) {
-    
-
-    function writeValueInText({ 
-        text, 
-        value 
-    }:writeInTextType) {
-        return `${text}: R$${value.toFixed()}`
-    }
 
     const altIconDelete = "icon delete"
 
@@ -36,24 +28,26 @@ export default function ItemCart({
             >R${ price }</span>
             <div className={styles.subPriceAndFrete}>
                 <span className={styles.subPrice}>
-                    { writeValueInText({
-                        text: "subTotal",
-                        value: subPrice
-                    }) }
+                    SubTotal: <span className={styles.green}>
+                            R${ 
+                                subPrice.toFixed(2) 
+                            }
+                        </span>
                 </span>
                 <span className={styles.frete}>
-                    {
-                        writeValueInText({
-                            text: "frete",
-                            value: frete
-                        })
-                    }
+                    frete: <span className={styles.green}>
+                        R${ 
+                            frete.toFixed(2) 
+                        }
+                    </span>
                 </span>
             </div>
             <img
+                data-id={identifierItem}
                 className={styles.iconDelete}
                 src={require('../../assets/icon-delete.svg').default}
                 alt={ altIconDelete }
+                onClick={ deleteItemEvent }
             />
         </div>
     )

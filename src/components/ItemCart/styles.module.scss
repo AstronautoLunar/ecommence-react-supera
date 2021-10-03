@@ -1,7 +1,11 @@
 div.ItemCard {
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     position: relative;
+
+    width: 100%;
+
+    margin-bottom: 20px;
 
     img.image {
         width: 100px;
@@ -14,13 +18,41 @@ div.ItemCard {
     }
 
     div.subPriceAndFrete {
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: space-around;
+
+        height: 100%;
+
+        margin-right: 50px;
+
+        span.subPrice,
+        span.frete
+        {
+            font-size: 15px;
+        
+            span.green {
+                color: var(--yellow-green);
+            }
+        }
     }
 
     img.iconDelete {
         position: absolute;
-        right: 5px;
+        right: 20px;
         top: 5px;
+
+        width: 25px;
+        height: 25px;
+
+        transition: transform 200ms;
+    }
+
+    img.iconDelete:hover {
+        transform: scale(1.1);
+    }
+
+    img.iconDelete:active {
+        transform: scale(1.0);
     }
 }
 

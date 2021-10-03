@@ -4,8 +4,11 @@ import styles from './styles.module.scss';
 
 export default function ModalCart({ 
     visible, 
-    children 
+    children,
+    clickCloseModal
 }:ModalCartData) {
+
+    const ALT_ICON_LEAVE_MODAL_CART = 'icon leave'
 
     return (
         <div 
@@ -17,7 +20,15 @@ export default function ModalCart({
                 styles.modalCartOff
             }
         >
-            { children }
+            <img
+                id={styles.iconLeave}
+                src={require('../../assets/icon-leave.svg').default}
+                alt={ALT_ICON_LEAVE_MODAL_CART}
+                onClick={ clickCloseModal }
+            />
+            <div id={styles.safeArea}>
+                { children }
+            </div>
         </div>
     )
 }

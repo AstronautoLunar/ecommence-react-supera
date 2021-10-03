@@ -14,7 +14,7 @@ div#modalCartOff
     top: 80px;
 
     width: 506px;
-    height: 432px;
+    height: 462px;
     
     background-color: var(--cultured);
     
@@ -23,10 +23,38 @@ div#modalCartOff
     animation-duration: 200ms;
     animation-fill-mode: forwards;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-top: 20px;
+
+    div#safeArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img#iconLeave {
+        width: 30px;
+        height: 30px;
+
+        position: absolute;
+        left: 10px;
+        top: 10px;
+
+        transition: transform 200ms;
+    }
+
+    img#iconLeave:hover {
+        transform: scale(1.1);
+    }
+
+    img#iconLeave:active {
+        transform: scale(1.0);
+    }
+
+    div#safeArea {
+        margin-top: 30px;
+        width: 100%;
+    }
 }
 
 @keyframes open-modal-cart {

@@ -7,7 +7,8 @@ import {
   FilterItem,
   GamesItem,
   Modal,
-  ModalCart
+  ModalCart,
+  ItemCart
 } from './components';
 import calcPrice from './utils/calcPrice';
 import { useProducts } from './contexts/ProductsContext';
@@ -228,8 +229,28 @@ export default function App() {
           {
             modalCartVisible.mount
             &&
-            <ModalCart visible={modalCartVisible.animation}>
-
+            <ModalCart 
+              visible={modalCartVisible.animation}
+              clickCloseModal={ closeModalCartVisible }
+            >
+              { 
+                listGamesCard.length > 0 
+                ? 
+                listGamesCard.map(item => (
+                  <ItemCart
+                    identifierItem={ item.id }
+                    key={ item.id }
+                    srcImage={ item.image }
+                    altImage={ item.name }
+                    price={ calcPrice(item.price).totalPrice }
+                    subPrice={ calcPrice(item.price).subPrice }
+                    frete={ calcPrice(item.price).frete }
+                    deleteItemEvent={ removeGameCard }
+                  />
+                ))
+                :
+                <span>Sem itens no carrinho</span>
+              }
             </ModalCart>
           }
         </div>
