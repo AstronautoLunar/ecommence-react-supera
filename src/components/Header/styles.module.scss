@@ -35,6 +35,16 @@ div#Header {
 
                     border: 1px solid var(--cultured);
                     border-radius: 100%;
+
+                    transition: transform 200ms;
+                }
+
+                div.circle:hover {
+                    transform: scale(1.1);
+                }
+
+                div.circle:active {
+                    transform: scale(1.0);
                 }
             }
         }
