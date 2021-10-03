@@ -10,7 +10,7 @@ import {
     ProductsContextData,
     ProductsProviderData,
     listGamesCardData
-} from '../types/productsContextData';
+} from '../types/ProductsContextData';
 
 const ProductsContext = createContext({} as ProductsContextData);
 

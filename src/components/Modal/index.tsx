@@ -1,4 +1,5 @@
 // import { useState } from 'react';
+import { listGamesCardData } from '../../types/ProductsContextData';
 
 import styles from './styles.module.scss';
 
@@ -13,6 +14,7 @@ interface ModalData {
     frete: number;
     clickAddCart?: ({ target }:any) => void;
     identifierItem: number;
+    listItems: listGamesCardData[];
 }
 
 export default function Modal({ 
@@ -25,8 +27,24 @@ export default function Modal({
     subPrice,
     frete,
     clickAddCart,
-    identifierItem
+    identifierItem,
+    listItems
 }: ModalData) {
+    function checkListItems() {
+        let checked = false;
+
+        for(let i in listItems) {
+            if(listItems[i].id === identifierItem) {
+                checked = true;
+                break;
+            } else {
+                checked = false;
+            }
+        }
+
+        return checked
+    }
+
     return (
         <div 
             id={
@@ -69,13 +87,26 @@ export default function Modal({
                             </span>
                         </span>
                     </div>
-                    <button 
-                        id={styles.buttonAddCart}
-                        onClick={clickAddCart}
-                        data-id={identifierItem}
-                    >
-                        Adicionar ao Carrinho
-                    </button>
+                    {
+                        checkListItems()
+                        ?
+                        <button 
+                            id={styles.buttonAddCart}
+                            onClick={clickAddCart}
+                            data-id={identifierItem}
+                        >
+                            Remover do carrinho
+                        </button>
+                        :
+                        <button 
+                            id={styles.buttonAddCart}
+                            onClick={clickAddCart}
+                            data-id={identifierItem}
+                        >
+                            Adicionar ao Carrinho
+                        </button>
+
+                    }
                 </div>
             </div>
         </div>

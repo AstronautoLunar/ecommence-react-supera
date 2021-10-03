@@ -12,7 +12,7 @@ import {
 import calcPrice from './utils/calcPrice';
 import { useProducts } from './contexts/ProductsContext';
 import styles from './style/home.module.scss';
-import { itemFilterDataType } from './types/app.tsx';
+import { itemFilterDataType } from './types/App';
 
 export default function App() {
   let [ radio, setRadio ] = useState("alphabetical-a");
@@ -29,7 +29,8 @@ export default function App() {
     chooseItem,
     currentItem,
     dataProducts,
-    addGameCard
+    addGameCard,
+    listGamesCard
   } = useProducts();
 
   function openModalGame({ target }:any) {
@@ -210,11 +211,7 @@ export default function App() {
         return data.sort(orderHighScore);
     }
   }
-
-  // function addGameCardModal({ target }:any) {
-  //   console.log(target.getAttribute('data-id'));
-  // }
-
+  
   return (
     <div id={styles.App}>
       <Header/>
@@ -281,6 +278,7 @@ export default function App() {
                 frete={calcPrice(currentItem.price).frete}
                 clickAddCart={ addGameCard }
                 identifierItem={ currentItem.id }
+                listItems={ listGamesCard }
               />
             }
           </div>
