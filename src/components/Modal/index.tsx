@@ -91,7 +91,7 @@ export default function Modal({
                         checkListItems()
                         ?
                         <button 
-                            id={styles.buttonAddCart}
+                            id={styles.buttonRemoveCart}
                             onClick={clickAddCart}
                             data-id={identifierItem}
                         >

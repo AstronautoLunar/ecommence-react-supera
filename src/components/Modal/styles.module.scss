@@ -100,18 +100,27 @@ div#modalOff
             }
         }
 
-        button#buttonAddCart {
-            background-color: var(--old-gold);
+        button#buttonAddCart,
+        button#buttonRemoveCart
+        {
             color: var(--cultured);
-
+            
             padding: 20px 10px;
-
+            
             border: none;
             outline: none;
-
+            
             font-size: 1.5rem;
-
+            
             transition: all 200ms;
+        }
+        
+        button#buttonAddCart {
+            background-color: var(--old-gold);
+        }
+        
+        button#buttonRemoveCart {
+            background-color: var(--indian-red);
         }
 
         button#buttonAddCart:hover {

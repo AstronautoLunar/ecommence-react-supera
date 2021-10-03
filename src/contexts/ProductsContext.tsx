@@ -28,8 +28,6 @@ export function ProductsProvider({ children }:ProductsProviderData) {
     }
 
     function addGameCard({ target }:any) {
-        // console.log(target.getAttribute('data-id'));
-        
         const identifierItem = Number(target.getAttribute("data-id"));
 
         function filterItemAddCard(item:listGamesCardData) {
@@ -38,16 +36,19 @@ export function ProductsProvider({ children }:ProductsProviderData) {
 
         const itemSelected:listGamesCardData[] = dataProducts.filter(filterItemAddCard)
 
-        // console.log(itemSelected);
-        
-        // const FIRST_ITEM_iTEM_SELECTED = 0;
-
-        // listGamesCard.forEach(item => {
-        //     // if(item.id === itemSelected.id)
-        //     console.log(`${item.name}: ${item.id === itemSelected[FIRST_ITEM_iTEM_SELECTED].id}`);
-        // })
-
         setListGamesCard(listGamesCard.concat(itemSelected));
+    }
+
+    function removeGameCard({ target }:any) {
+        const identifierItem = Number(target.getAttribute("data-id"));
+
+        function filterItemAddCard(item:listGamesCardData) {
+            return item.id === identifierItem;
+        }
+
+        const itemSelected:listGamesCardData[] = dataProducts.filter(filterItemAddCard)
+
+        setListGamesCard(listGamesCard.filter(item => item.id !== itemSelected[0].id));
     }
 
     return (
