@@ -23,7 +23,7 @@ div#modalCartOff
     animation-duration: 200ms;
     animation-fill-mode: forwards;
 
-    padding-top: 20px;
+    padding-top: 40px;
 
     overflow: hidden;
 
@@ -33,6 +33,7 @@ div#modalCartOff
         justify-content: flex-start;
         align-items: center;
 
+        width: 100%;
         height: 100%;
 
         overflow-y: auto;
@@ -56,11 +57,6 @@ div#modalCartOff
     img#iconLeave:active {
         transform: scale(1.0);
     }
-
-    div#safeArea {
-        margin-top: 30px;
-        width: 100%;
-    }
 }
 
 @keyframes open-modal-cart {
@@ -80,5 +76,23 @@ div#modalCartOff
     
     to {
         opacity: 0;
+    }
+}
+
+@media screen and (max-width: 674px) {
+    div#modalCartOn,
+    div#modalCartOff
+    {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (max-width: 544px) {
+    div#modalCartOn,
+    div#modalCartOff
+    {
+        width: 80vw;
     }
 }

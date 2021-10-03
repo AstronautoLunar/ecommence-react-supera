@@ -62,3 +62,24 @@ div.subPriceAndFrete
     display: flex;
     align-items: center;
 }
+
+@media screen and (max-width: 536px) {
+    div.ItemCard {
+        div.subPriceAndFrete {
+            span.subPrice,
+            span.frete
+            {
+                display: none;
+            }
+        }
+    
+    }
+}
+
+@media screen and (max-width: 458px) {
+    div.ItemCard {
+        span.textPrice {
+            font-size: 20px;
+        }
+    }
+}
