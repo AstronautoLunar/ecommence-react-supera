@@ -220,12 +220,18 @@ export default function App() {
       <main id={styles.Main}>
         <div id={styles.topHeader}>
           <h1 id={styles.title}>Bem vindo</h1>
-          <img
-              id={styles.imageCart}
-              src={require('./assets/icon-cart.svg').default}
-              alt="icon cart"
-              onClick={toggleModalCartVisible}
-          />
+          <div 
+            id={styles.imageCart}
+            onClick={toggleModalCartVisible}
+          >
+            <div id={styles.counterArea}>
+              <span id={styles.counterText}>
+                {
+                  listGamesCard.length
+                }
+              </span>
+            </div>
+          </div>
           {
             modalCartVisible.mount
             &&

@@ -15,8 +15,39 @@ div#App {
                 margin-left: 20px;
             }
             
-            img#imageCart {
+            div#imageCart {
+                width: 75px;
+                height: 65px;
+
                 margin-right: 20px;
+
+                background-image: url(../assets/icon-cart.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+
+                position: relative;
+
+                div#counterArea {
+                    width: 20px;
+                    height: 20px;
+
+                    background-color: var(--red-counter);
+
+                    border-radius: 100%;
+
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+
+                    justify-content: center;
+                    align-items: center;
+                    
+                    span#counterText {
+                        color: var(--cultured);
+
+                        font-weight: bold;
+                    }
+                }
             }
         }
         
@@ -73,7 +104,8 @@ main#Main,
 div#topHeader,
 div#AreaGames,
 div#filterGames,
-div#games
+div#games,
+div#counterArea
 {
     display: flex;
 }
