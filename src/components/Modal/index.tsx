@@ -1,22 +1,6 @@
-// import { useState } from 'react';
-import { listGamesCardData } from '../../types/ProductsContextData';
+import { ModalData } from '../../types/ModalData';
 
 import styles from './styles.module.scss';
-
-interface ModalData {
-    animationDirection: boolean;
-    clickCloseModal: () => void;
-    title: string;
-    src: string;
-    alt: string;
-    price: number;
-    subPrice: number;
-    frete: number;
-    clickAddCart?: ({ target }:any) => void;
-    clickRemoveCart?: ({ target }:any) => void;
-    identifierItem: number;
-    listItems: listGamesCardData[];
-}
 
 export default function Modal({ 
     animationDirection, 

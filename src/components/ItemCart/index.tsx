@@ -1,26 +1,19 @@
 import styles from './styles.module.scss';
 
-interface ItemCardData {
-    srcImage: string;
-    altImage: string;
-    price: number;
-    subPrice: number;
-    frete: number;
-    deleteItemEvent: () => void;
-}
+import { 
+    ItemCartData, 
+    writeInTextType 
+} from '../../types/ItemCartData';
 
-export default function ItemCard({ 
+export default function ItemCart({ 
     srcImage,
     altImage,
     price,
     subPrice,
     frete,
     deleteItemEvent
-}:ItemCardData) {
-    interface writeInTextType {
-        text: string;
-        value: number;
-    }
+}:ItemCartData) {
+    
 
     function writeValueInText({ 
         text, 

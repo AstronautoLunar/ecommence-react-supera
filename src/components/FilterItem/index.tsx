@@ -1,11 +1,6 @@
 import styles from './styles.module.scss';
 
-interface FilterItemData {
-    label: string;
-    value: string;
-    onChange: any;
-    checked: boolean;
-}
+import { FilterItemData } from '../../types/FilterItemData';
 
 export default function FilterItem({ 
     label, 

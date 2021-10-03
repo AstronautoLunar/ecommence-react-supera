@@ -1,9 +1,6 @@
-import styles from './styles.module.scss';
+import { ModalCartData } from '../../types/ModalCartData';
 
-interface ModalCartData {
-    visible: boolean;
-    children?: JSX.Element | JSX.Element[];
-}
+import styles from './styles.module.scss';
 
 export default function ModalCart({ 
     visible, 

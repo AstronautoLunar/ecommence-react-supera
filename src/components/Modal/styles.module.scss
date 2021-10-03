@@ -123,11 +123,15 @@ div#modalOff
             background-color: var(--indian-red);
         }
 
-        button#buttonAddCart:hover {
+        button#buttonAddCart:hover,
+        button#buttonRemoveCart:hover 
+        {
             transform: scale(1.1);
         }
 
-        button#buttonAddCart:active {
+        button#buttonAddCart:active,
+        button#buttonRemoveCart:active
+        {
             transform: scale(1.0);
         }
     }

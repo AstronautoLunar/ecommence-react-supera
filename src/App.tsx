@@ -12,7 +12,7 @@ import {
 import calcPrice from './utils/calcPrice';
 import { useProducts } from './contexts/ProductsContext';
 import styles from './style/home.module.scss';
-import { itemFilterDataType } from './types/App';
+import { itemFilterDataType } from './types/AppData';
 
 export default function App() {
   let [ radio, setRadio ] = useState("alphabetical-a");

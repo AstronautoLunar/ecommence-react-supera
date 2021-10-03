@@ -1,11 +1,6 @@
 import styles from './styles.module.scss';
 
-interface GamesItemData {
-    src: string;
-    alt: string;
-    click?: ({ target }:any) => void;
-    identifier: string
-}
+import { GamesItemData } from '../../types/GamesItemData';
 
 export default function GamesItem({ 
     src, 

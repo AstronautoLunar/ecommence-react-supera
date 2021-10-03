@@ -4,17 +4,13 @@ import {
     useRef
 } from 'react';
 
-import styles from './styles.module.scss';
+import { itensData } from '../../types/HeaderData';
 
 import dataNavBar from '../../data/navBar.json'
 
-const ONE_SECONDS_IN_MILISECONDS = 1000;
+import styles from './styles.module.scss';
 
-interface itensData {
-    id: number;
-    src: string;
-    alt: string;
-}
+const ONE_SECONDS_IN_MILISECONDS = 1000;
 
 export default function Header() {
     let [ date, setDate ] = useState("0");
